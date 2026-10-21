@@ -1,0 +1,19 @@
+"""通过命令行参数指定多个 Python 文件进行加载。"""
+
+import sys
+import traceback
+from importlib.machinery import SourceFileLoader
+
+if __name__ == "__main__":
+    files = sys.argv[1:]
+    has_failure = False
+    for file in files:
+        try:
+            SourceFileLoader("x", file).load_module()
+        except Exception:  # noqa: BLE001
+            has_failure = True
+            print(file)  # noqa: T201
+            traceback.print_exc()
+            print()  # noqa: T201
+
+    sys.exit(1 if has_failure else 0)

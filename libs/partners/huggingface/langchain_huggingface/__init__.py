@@ -1,0 +1,23 @@
+"""LangChain 的 Hugging Face 集成。"""
+
+from langchain_huggingface._version import __version__
+from langchain_huggingface.chat_models import (
+    ChatHuggingFace,  # type: ignore[import-not-found]
+)
+from langchain_huggingface.embeddings import (
+    HuggingFaceEmbeddings,
+    HuggingFaceEndpointEmbeddings,
+)
+from langchain_huggingface.llms import (
+    HuggingFaceEndpoint,
+    HuggingFacePipeline,
+)
+
+__all__ = [
+    "ChatHuggingFace",
+    "HuggingFaceEmbeddings",
+    "HuggingFaceEndpoint",
+    "HuggingFaceEndpointEmbeddings",
+    "HuggingFacePipeline",
+    "__version__",
+]

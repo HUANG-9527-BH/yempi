@@ -1,0 +1,111 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-anthropic"
+description = "Integration package connecting Claude (Anthropic) APIs and LangChain"
+license = { text = "MIT" }
+readme = "README.md"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+version = "1.7.6"
+requires-python = ">=3.10.0,<4.0.0"
+dependencies = [
+    "anthropic>=0.120.0,<2.0.0",
+    "langchain-core>=1.6.10,<2.0.0",
+    "pydantic>=2.7.4,<3.0.0",
+]
+
+[project.urls]
+Homepage = "https://docs.langchain.com/oss/python/integrations/providers/anthropic"
+Documentation = "https://reference.langchain.com/python/integrations/langchain_anthropic/"
+Repository = "https://github.com/langchain-ai/langchain"
+Issues = "https://github.com/langchain-ai/langchain/issues"
+Changelog = "https://github.com/langchain-ai/langchain/releases?q=%22langchain-anthropic%22"
+Twitter = "https://x.com/langchain_oss"
+Slack = "https://www.langchain.com/join-community"
+Reddit = "https://www.reddit.com/r/LangChain/"
+
+[dependency-groups]
+lint = ["ruff>=0.13.1,<0.17.0"]
+typing = [
+    "mypy>=2.1.0,<2.2.0",
+    "types-requests>=2.31.0,<3.0.0",
+]
+
+
+[tool.uv.sources]
+langchain-core = { path = "../../core", editable = true }
+langchain = { path = "../../langchain_v1", editable = true }
+
+[tool.uv]
+constraint-dependencies = ["urllib3>=2.6.3", "pygments>=2.20.0"]
+
+[tool.mypy]
+# `pydantic.mypy` is required here (and on perplexity): this package's code is
+# authored against the plugin and reports many errors without it. It is
+# intentionally NOT enabled on the other partner packages, where it adds no real
+# coverage and instead false-flags the public alias-based constructor API
+# (e.g. `Chat...(model=...)`, `...(api_key=...)`) used in their tests.
+plugins = ["pydantic.mypy"]
+disallow_untyped_defs = true
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 100
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "COM812",  # Messes with the formatter
+    "ISC001",  # Messes with the formatter
+    "PERF203", # Rarely useful
+    "SIM105",  # Rarely useful
+    "FIX",     # TODOs
+    "TD",      # TODOs
+    "C901",    # Complex functions
+    "PLR0912", # Too many branches
+    "PLR0913", # Too many arguments
+    "PLR0914", # Too many local variables
+    "PLR0915", # Too many statements
+    "ARG001",
+    "PLR0911", # Too many return statements
+
+    # TODO
+    "PLR2004", # Comparison to magic number
+    "ANN401",
+    "ARG002",
+    "BLE001",
+    "TC",
+    "PLC0415",
+    "PT011",
+    "PT013",
+    "TRY",
+    "PLW",
+    "PLE",
+]
+unfixable = ["B028"] # People should intentionally tune the stacklevel
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+ignore-var-parameters = true  # ignore missing documentation for *args and **kwargs parameters
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.extend-per-file-ignores]
+"scripts/*.py" = [
+    "INP001",   # Not a package
+]

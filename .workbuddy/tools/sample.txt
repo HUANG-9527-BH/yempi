@@ -1,0 +1,12 @@
+libs/core/langchain_core/version.py
+libs/core/langchain_core/example_selectors/length_based.py
+libs/core/langchain_core/tracers/event_stream.py
+libs/core/scripts/check_imports.py
+libs/core/scripts/check_version.py
+libs/core/scripts/check_version.py
+libs/core/tests/__init__.py
+libs/core/tests/unit_tests/utils/test_strings.py
+libs/core/tests/unit_tests/runnables/test_runnable.py
+libs/langchain/langchain_classic/adapters/__init__.py
+libs/langchain/langchain_classic/vectorstores/faiss.py
+libs/langchain/langchain_classic/agents/agent.py

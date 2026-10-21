@@ -1,0 +1,168 @@
+"""**工具** 是与第三方系统和包的集成。
+
+Other LangChain classes use **Utilities** to interact with third-part systems
+and packages.
+"""
+
+from typing import TYPE_CHECKING, Any
+
+from langchain_classic._api import create_importer
+
+if TYPE_CHECKING:
+    from langchain_community.utilities import (
+        AlphaVantageAPIWrapper,
+        ApifyWrapper,
+        ArceeWrapper,
+        ArxivAPIWrapper,
+        BibtexparserWrapper,
+        BingSearchAPIWrapper,
+        BraveSearchWrapper,
+        DuckDuckGoSearchAPIWrapper,
+        GoldenQueryAPIWrapper,
+        GoogleFinanceAPIWrapper,
+        GoogleJobsAPIWrapper,
+        GoogleLensAPIWrapper,
+        GooglePlacesAPIWrapper,
+        GoogleScholarAPIWrapper,
+        GoogleSearchAPIWrapper,
+        GoogleSerperAPIWrapper,
+        GoogleTrendsAPIWrapper,
+        GraphQLAPIWrapper,
+        JiraAPIWrapper,
+        LambdaWrapper,
+        MaxComputeAPIWrapper,
+        MerriamWebsterAPIWrapper,
+        MetaphorSearchAPIWrapper,
+        NasaAPIWrapper,
+        OpenWeatherMapAPIWrapper,
+        OutlineAPIWrapper,
+        Portkey,
+        PowerBIDataset,
+        PubMedAPIWrapper,
+        Requests,
+        RequestsWrapper,
+        SceneXplainAPIWrapper,
+        SearchApiAPIWrapper,
+        SearxSearchWrapper,
+        SerpAPIWrapper,
+        SparkSQL,
+        SQLDatabase,
+        StackExchangeAPIWrapper,
+        SteamWebAPIWrapper,
+        TensorflowDatasets,
+        TextRequestsWrapper,
+        TwilioAPIWrapper,
+        WikipediaAPIWrapper,
+        WolframAlphaAPIWrapper,
+        ZapierNLAWrapper,
+    )
+
+# 创建一种动态查找已弃用导入的方式。
+# 用于统一处理引发弃用警告和
+# 处理可选导入的逻辑。
+DEPRECATED_LOOKUP = {
+    "AlphaVantageAPIWrapper": "langchain_community.utilities",
+    "ApifyWrapper": "langchain_community.utilities",
+    "ArceeWrapper": "langchain_community.utilities",
+    "ArxivAPIWrapper": "langchain_community.utilities",
+    "BibtexparserWrapper": "langchain_community.utilities",
+    "BingSearchAPIWrapper": "langchain_community.utilities",
+    "BraveSearchWrapper": "langchain_community.utilities",
+    "DuckDuckGoSearchAPIWrapper": "langchain_community.utilities",
+    "GoldenQueryAPIWrapper": "langchain_community.utilities",
+    "GoogleFinanceAPIWrapper": "langchain_community.utilities",
+    "GoogleLensAPIWrapper": "langchain_community.utilities",
+    "GoogleJobsAPIWrapper": "langchain_community.utilities",
+    "GooglePlacesAPIWrapper": "langchain_community.utilities",
+    "GoogleScholarAPIWrapper": "langchain_community.utilities",
+    "GoogleTrendsAPIWrapper": "langchain_community.utilities",
+    "GoogleSearchAPIWrapper": "langchain_community.utilities",
+    "GoogleSerperAPIWrapper": "langchain_community.utilities",
+    "GraphQLAPIWrapper": "langchain_community.utilities",
+    "JiraAPIWrapper": "langchain_community.utilities",
+    "LambdaWrapper": "langchain_community.utilities",
+    "MaxComputeAPIWrapper": "langchain_community.utilities",
+    "MerriamWebsterAPIWrapper": "langchain_community.utilities",
+    "MetaphorSearchAPIWrapper": "langchain_community.utilities",
+    "NasaAPIWrapper": "langchain_community.utilities",
+    "OpenWeatherMapAPIWrapper": "langchain_community.utilities",
+    "OutlineAPIWrapper": "langchain_community.utilities",
+    "Portkey": "langchain_community.utilities",
+    "PowerBIDataset": "langchain_community.utilities",
+    "PubMedAPIWrapper": "langchain_community.utilities",
+        # 我们不会在 __all__ 中列出 PythonREPL，因为它已被移除自社区
+        # 它将代理到社区包，该包会引发适当的异常。
+    "PythonREPL": "langchain_community.utilities",
+    "Requests": "langchain_community.utilities",
+    "SteamWebAPIWrapper": "langchain_community.utilities",
+    "SQLDatabase": "langchain_community.utilities",
+    "SceneXplainAPIWrapper": "langchain_community.utilities",
+    "SearchApiAPIWrapper": "langchain_community.utilities",
+    "SearxSearchWrapper": "langchain_community.utilities",
+    "SerpAPIWrapper": "langchain_community.utilities",
+    "SparkSQL": "langchain_community.utilities",
+    "StackExchangeAPIWrapper": "langchain_community.utilities",
+    "TensorflowDatasets": "langchain_community.utilities",
+    "RequestsWrapper": "langchain_community.utilities",
+    "TextRequestsWrapper": "langchain_community.utilities",
+    "TwilioAPIWrapper": "langchain_community.utilities",
+    "WikipediaAPIWrapper": "langchain_community.utilities",
+    "WolframAlphaAPIWrapper": "langchain_community.utilities",
+    "ZapierNLAWrapper": "langchain_community.utilities",
+}
+
+_import_attribute = create_importer(__package__, deprecated_lookups=DEPRECATED_LOOKUP)
+
+
+def __getattr__(name: str) -> Any:
+    """动态查找属性。"""
+    return _import_attribute(name)
+
+
+__all__ = [
+    "AlphaVantageAPIWrapper",
+    "ApifyWrapper",
+    "ArceeWrapper",
+    "ArxivAPIWrapper",
+    "BibtexparserWrapper",
+    "BingSearchAPIWrapper",
+    "BraveSearchWrapper",
+    "DuckDuckGoSearchAPIWrapper",
+    "GoldenQueryAPIWrapper",
+    "GoogleFinanceAPIWrapper",
+    "GoogleJobsAPIWrapper",
+    "GoogleLensAPIWrapper",
+    "GooglePlacesAPIWrapper",
+    "GoogleScholarAPIWrapper",
+    "GoogleSearchAPIWrapper",
+    "GoogleSerperAPIWrapper",
+    "GoogleTrendsAPIWrapper",
+    "GraphQLAPIWrapper",
+    "JiraAPIWrapper",
+    "LambdaWrapper",
+    "MaxComputeAPIWrapper",
+    "MerriamWebsterAPIWrapper",
+    "MetaphorSearchAPIWrapper",
+    "NasaAPIWrapper",
+    "OpenWeatherMapAPIWrapper",
+    "OutlineAPIWrapper",
+    "Portkey",
+    "PowerBIDataset",
+    "PubMedAPIWrapper",
+    "Requests",
+    "RequestsWrapper",
+    "SQLDatabase",
+    "SceneXplainAPIWrapper",
+    "SearchApiAPIWrapper",
+    "SearxSearchWrapper",
+    "SerpAPIWrapper",
+    "SparkSQL",
+    "StackExchangeAPIWrapper",
+    "SteamWebAPIWrapper",
+    "TensorflowDatasets",
+    "TextRequestsWrapper",
+    "TwilioAPIWrapper",
+    "WikipediaAPIWrapper",
+    "WolframAlphaAPIWrapper",
+    "ZapierNLAWrapper",
+]

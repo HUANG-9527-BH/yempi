@@ -1,0 +1,9 @@
+{"path": "D:\\python-xm\\langchain\\libs\\core\\tests\\unit_tests\\callbacks\\test_trace_group_cancellation.py", "ok": true, "seg": 7, "calls": 1}
+{"path": "D:\\python-xm\\langchain\\libs\\langchain_v1\\tests\\unit_tests\\agents\\middleware\\core\\test_framework.py", "ok": true, "seg": 63, "calls": 2}
+{"path": "D:\\python-xm\\langchain\\libs\\core\\tests\\unit_tests\\prompts\\test_chat.py", "ok": true, "seg": 76, "calls": 2}
+{"path": "D:\\python-xm\\langchain\\libs\\partners\\openai\\tests\\unit_tests\\conftest.py", "ok": true, "seg": 7, "calls": 1}
+{"path": "D:\\python-xm\\langchain\\libs\\langchain\\langchain_classic\\chains\\openai_functions\\base.py", "ok": true, "seg": 28, "calls": 3}
+{"path": "D:\\python-xm\\langchain\\libs\\model-profiles\\langchain_model_profiles\\_summary.py", "ok": true, "seg": 51, "calls": 8}
+{"path": "D:\\python-xm\\langchain\\libs\\standard-tests\\langchain_tests\\conftest.py", "ok": true, "seg": 23, "calls": 1}
+{"path": "D:\\python-xm\\langchain\\libs\\partners\\openai\\tests\\integration_tests\\chat_models\\test_responses_api.py", "ok": true, "seg": 116, "calls": 10}
+{"path": "D:\\python-xm\\langchain\\libs\\partners\\openrouter\\langchain_openrouter\\chat_models.py", "ok": true, "seg": 103, "calls": 9}

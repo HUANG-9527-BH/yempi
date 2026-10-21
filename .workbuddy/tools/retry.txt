@@ -1,0 +1,9 @@
+libs/core/tests/unit_tests/callbacks/test_trace_group_cancellation.py
+libs/core/tests/unit_tests/prompts/test_chat.py
+libs/langchain/langchain_classic/chains/openai_functions/base.py
+libs/langchain_v1/tests/unit_tests/agents/middleware/core/test_framework.py
+libs/model-profiles/langchain_model_profiles/_summary.py
+libs/partners/openai/tests/unit_tests/conftest.py
+libs/partners/openai/tests/integration_tests/chat_models/test_responses_api.py
+libs/partners/openrouter/langchain_openrouter/chat_models.py
+libs/standard-tests/langchain_tests/conftest.py

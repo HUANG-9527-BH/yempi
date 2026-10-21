@@ -1,0 +1,6 @@
+libs/core/langchain_core/chat_history.py
+libs/core/langchain_core/load/load.py
+libs/core/langchain_core/tracers/core.py
+libs/core/langchain_core/tracers/stdout.py
+libs/partners/anthropic/langchain_anthropic/chat_models.py
+libs/standard-tests/langchain_tests/unit_tests/chat_models.py

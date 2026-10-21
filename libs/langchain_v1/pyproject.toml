@@ -1,0 +1,139 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain"
+description = "Building applications with LLMs through composability"
+license = { text = "MIT" }
+readme = "README.md"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+version = "1.4.6"
+requires-python = ">=3.10.0,<4.0.0"
+dependencies = [
+    "langchain-core>=1.6.10,<2.0.0",
+    "langgraph>=1.2.12,<1.3.0",
+    "pydantic>=2.7.4,<3.0.0",
+]
+
+[project.optional-dependencies]
+community = ["langchain-community"]
+anthropic = ["langchain-anthropic"]
+openai = ["langchain-openai"]
+azure-ai = ["langchain-azure-ai"]
+google-vertexai = ["langchain-google-vertexai"]
+google-genai = ["langchain-google-genai"]
+fireworks = ["langchain-fireworks"]
+ollama = ["langchain-ollama"]
+together = ["langchain-together"]
+mistralai = ["langchain-mistralai"]
+huggingface = ["langchain-huggingface"]
+groq = ["langchain-groq"]
+aws = ["langchain-aws"]
+baseten = ["langchain-baseten>=0.2.0"]
+deepseek = ["langchain-deepseek"]
+xai = ["langchain-xai"]
+perplexity = ["langchain-perplexity"]
+meta = ["langchain-meta"]
+mcp = ["fastmcp>=4.0.11,<5.0.0"]
+
+[project.urls]
+Homepage = "https://docs.langchain.com/"
+Documentation = "https://reference.langchain.com/python/langchain/langchain/"
+Repository = "https://github.com/langchain-ai/langchain"
+Issues = "https://github.com/langchain-ai/langchain/issues"
+Changelog = "https://github.com/langchain-ai/langchain/releases?q=tag%3A%22langchain%3D%3D1%22"
+Twitter = "https://x.com/langchain_oss"
+Slack = "https://www.langchain.com/join-community"
+Reddit = "https://www.reddit.com/r/LangChain/"
+
+[dependency-groups]
+lint = [
+    "ruff>=0.15.0,<0.17.0",
+]
+typing = [
+    "mypy>=2.1.0,<2.2.0",
+    "types-toml>=0.10.8.20240310,<1.0.0.0",
+    "fastmcp>=4.0.11,<5.0.0",
+]
+
+
+[tool.uv]
+constraint-dependencies = ["urllib3>=2.6.3", "pygments>=2.20.0"]
+
+[tool.uv.sources]
+langchain-core = { path = "../core", editable = true }
+langchain-text-splitters = { path = "../text-splitters", editable = true }
+langchain-openai = { path = "../partners/openai", editable = true }
+langchain-anthropic = { path = "../partners/anthropic", editable = true }
+
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+strict = true
+enable_error_code = "deprecated"
+warn_unreachable = true
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = [
+    "ALL"
+]
+ignore = [
+    "C90",     # McCabe complexity
+    "COM812",  # Messes with the formatter
+    "CPY",     # No copyright
+    "FIX002",  # Line contains TODO
+    "PERF203", # Rarely useful
+    "PLR09",   # Too many something (arg, statements, etc)
+    "TD002",   # Missing author in TODO
+    "TD003",   # Missing issue link in TODO
+
+    # TODO rules
+    "ANN401",  # Any in type annotations
+    "BLE",     # Blind exceptions
+]
+unfixable = [
+    "B028",    # People should intentionally tune the stacklevel
+]
+
+flake8-annotations.allow-star-arg-any = true
+flake8-annotations.mypy-init-return = true
+allowed-confusables = ["–"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+ignore-var-parameters = true  # ignore missing documentation for *args and **kwargs parameters
+
+[tool.ruff.lint.extend-per-file-ignores]
+
+"scripts/*" = [
+    "INP",  # Scripts are not in a package
+    "T201", # Scripts can print to the console
+]
+
+"examples/*" = [
+    "INP",  # Examples are not in a package
+    "T201", # Examples print their output, which is the point
+]
+

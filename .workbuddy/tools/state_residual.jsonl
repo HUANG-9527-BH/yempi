@@ -1,0 +1,6 @@
+{"path": "D:\\python-xm\\langchain\\libs\\core\\langchain_core\\chat_history.py", "ok": true, "seg": 33, "calls": 2}
+{"path": "D:\\python-xm\\langchain\\libs\\core\\langchain_core\\tracers\\stdout.py", "ok": true, "seg": 18, "calls": 1}
+{"path": "D:\\python-xm\\langchain\\libs\\core\\langchain_core\\tracers\\core.py", "ok": true, "seg": 74, "calls": 2}
+{"path": "D:\\python-xm\\langchain\\libs\\core\\langchain_core\\load\\load.py", "ok": true, "seg": 110, "calls": 7}
+{"path": "D:\\python-xm\\langchain\\libs\\standard-tests\\langchain_tests\\unit_tests\\chat_models.py", "ok": true, "seg": 206, "calls": 7}
+{"path": "D:\\python-xm\\langchain\\libs\\partners\\anthropic\\langchain_anthropic\\chat_models.py", "ok": false, "seg": 260, "calls": 7, "err": "语法错误: invalid character '，' (U+FF0C) (<unknown>, line 3073)"}

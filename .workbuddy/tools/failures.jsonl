@@ -1,0 +1,10 @@
+{"path": "D:\\python-xm\\langchain\\libs\\core\\tests\\unit_tests\\callbacks\\test_trace_group_cancellation.py", "ok": false, "seg": 7, "calls": 1, "err": "语法错误: invalid character '。' (U+3002) (<unknown>, line 68)"}
+{"path": "D:\\python-xm\\langchain\\libs\\core\\tests\\unit_tests\\prompts\\test_chat.py", "ok": false, "seg": 76, "calls": 2, "err": "语法错误: invalid character '。' (U+3002) (<unknown>, line 810)"}
+{"path": "D:\\python-xm\\langchain\\libs\\langchain\\langchain_classic\\chains\\openai_functions\\base.py", "ok": false, "seg": 28, "calls": 5, "err": "语法错误: invalid syntax (<unknown>, line 88)"}
+{"path": "D:\\python-xm\\langchain\\libs\\langchain\\tests\\integration_tests\\examples\\non-utf8-encoding.py", "ok": false, "err": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb1 in position 23: invalid start byte"}
+{"path": "D:\\python-xm\\langchain\\libs\\langchain_v1\\tests\\unit_tests\\agents\\middleware\\core\\test_framework.py", "ok": false, "seg": 63, "calls": 2, "err": "语法错误: unexpected indent (<unknown>, line 478)"}
+{"path": "D:\\python-xm\\langchain\\libs\\model-profiles\\langchain_model_profiles\\_summary.py", "ok": false, "seg": 51, "calls": 8, "err": "语法错误: invalid character '）' (U+FF09) (<unknown>, line 180)"}
+{"path": "D:\\python-xm\\langchain\\libs\\partners\\openai\\tests\\unit_tests\\conftest.py", "ok": false, "seg": 7, "calls": 1, "err": "语法错误: unexpected indent (<unknown>, line 7)"}
+{"path": "D:\\python-xm\\langchain\\libs\\partners\\openai\\tests\\integration_tests\\chat_models\\test_responses_api.py", "ok": false, "seg": 116, "calls": 7, "err": "语法错误: invalid character '。' (U+3002) (<unknown>, line 513)"}
+{"path": "D:\\python-xm\\langchain\\libs\\partners\\openrouter\\langchain_openrouter\\chat_models.py", "ok": false, "seg": 103, "calls": 4, "err": "语法错误: invalid character '）' (U+FF09) (<unknown>, line 1304)"}
+{"path": "D:\\python-xm\\langchain\\libs\\standard-tests\\langchain_tests\\conftest.py", "ok": false, "seg": 23, "calls": 3, "err": "语法错误: invalid character '。' (U+3002) (<unknown>, line 69)"}

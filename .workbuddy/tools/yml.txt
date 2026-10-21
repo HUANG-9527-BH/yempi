@@ -1,0 +1,5 @@
+.github/ISSUE_TEMPLATE/bug-report.yml
+.github/ISSUE_TEMPLATE/feature-request.yml
+.github/ISSUE_TEMPLATE/task.yml
+.github/ISSUE_TEMPLATE/privileged.yml
+.github/ISSUE_TEMPLATE/config.yml

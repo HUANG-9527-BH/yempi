@@ -1,0 +1,33 @@
+from typing import TYPE_CHECKING, Any
+
+from langchain_classic._api import create_importer
+
+if TYPE_CHECKING:
+    from langchain_community.vectorstores import TencentVectorDB
+    from langchain_community.vectorstores.tencentvectordb import (
+        ConnectionParams,
+        IndexParams,
+    )
+
+# 创建一种动态查找已弃用导入的方式。
+# 用于合并引发弃用警告和处理可选导入的逻辑。
+# 处理可选导入。
+DEPRECATED_LOOKUP = {
+    "ConnectionParams": "langchain_community.vectorstores.tencentvectordb",
+    "IndexParams": "langchain_community.vectorstores.tencentvectordb",
+    "TencentVectorDB": "langchain_community.vectorstores",
+}
+
+_import_attribute = create_importer(__package__, deprecated_lookups=DEPRECATED_LOOKUP)
+
+
+def __getattr__(name: str) -> Any:
+    """动态查找属性。"""
+    return _import_attribute(name)
+
+
+__all__ = [
+    "ConnectionParams",
+    "IndexParams",
+    "TencentVectorDB",
+]

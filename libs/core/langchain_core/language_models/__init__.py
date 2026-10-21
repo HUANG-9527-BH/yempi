@@ -1,0 +1,114 @@
+"""核心语言模型抽象。
+
+LangChain has two main classes to work with language models: chat models and
+"old-fashioned" LLMs (string-in, string-out).
+
+**聊天模型**
+
+Language models that use a sequence of messages as inputs and return chat messages
+as outputs (as opposed to using plain text).
+
+Chat models support the assignment of distinct roles to conversation messages, helping
+to distinguish messages from the AI, users, and instructions such as system messages.
+
+The key abstraction for chat models is
+[`BaseChatModel`][langchain_core.language_models.BaseChatModel]. Implementations should
+inherit from this class.
+
+参见现有的[聊天模型集成](https://docs.langchain.com/oss/python/integrations/chat)。
+
+**LLMs（旧版）**
+
+以字符串作为输入并返回字符串的语言模型。
+
+这些通常是较旧的模型（新模型一般为聊天模型）。
+
+尽管底层模型是字符串输入、字符串输出，但 LangChain
+的封装也允许这些模型接收消息作为输入。这使它们具有与聊天模型相同的接口。当传入消息作为输入时，会在内部被格式化为字符串后再传递给底层模型。
+"""
+
+from typing import TYPE_CHECKING
+
+from langchain_core._import_utils import import_attr
+from langchain_core.language_models._utils import is_openai_data_block
+
+if TYPE_CHECKING:
+    from langchain_core.language_models.base import (
+        BaseLanguageModel,
+        LangSmithParams,
+        LanguageModelInput,
+        LanguageModelLike,
+        LanguageModelOutput,
+        get_tokenizer,
+    )
+    from langchain_core.language_models.chat_models import (
+        BaseChatModel,
+        SimpleChatModel,
+    )
+    from langchain_core.language_models.fake import FakeListLLM, FakeStreamingListLLM
+    from langchain_core.language_models.fake_chat_models import (
+        FakeListChatModel,
+        FakeMessagesListChatModel,
+        GenericFakeChatModel,
+        ParrotFakeChatModel,
+    )
+    from langchain_core.language_models.llms import LLM, BaseLLM
+    from langchain_core.language_models.model_profile import (
+        ModelProfile,
+        ModelProfileRegistry,
+    )
+
+__all__ = (
+    "LLM",
+    "BaseChatModel",
+    "BaseLLM",
+    "BaseLanguageModel",
+    "FakeListChatModel",
+    "FakeListLLM",
+    "FakeMessagesListChatModel",
+    "FakeStreamingListLLM",
+    "GenericFakeChatModel",
+    "LangSmithParams",
+    "LanguageModelInput",
+    "LanguageModelLike",
+    "LanguageModelOutput",
+    "ModelProfile",
+    "ModelProfileRegistry",
+    "ParrotFakeChatModel",
+    "SimpleChatModel",
+    "get_tokenizer",
+    "is_openai_data_block",
+)
+
+_dynamic_imports = {
+    "BaseLanguageModel": "base",
+    "LangSmithParams": "base",
+    "LanguageModelInput": "base",
+    "LanguageModelLike": "base",
+    "LanguageModelOutput": "base",
+    "get_tokenizer": "base",
+    "BaseChatModel": "chat_models",
+    "SimpleChatModel": "chat_models",
+    "FakeListLLM": "fake",
+    "FakeStreamingListLLM": "fake",
+    "FakeListChatModel": "fake_chat_models",
+    "FakeMessagesListChatModel": "fake_chat_models",
+    "GenericFakeChatModel": "fake_chat_models",
+    "ParrotFakeChatModel": "fake_chat_models",
+    "LLM": "llms",
+    "ModelProfile": "model_profile",
+    "ModelProfileRegistry": "model_profile",
+    "BaseLLM": "llms",
+    "is_openai_data_block": "_utils",
+}
+
+
+def __getattr__(attr_name: str) -> object:
+    module_name = _dynamic_imports.get(attr_name)
+    result = import_attr(attr_name, module_name, __spec__.parent)
+    globals()[attr_name] = result
+    return result
+
+
+def __dir__() -> list[str]:
+    return list(__all__)

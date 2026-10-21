@@ -1,0 +1,4 @@
+{"path": "D:\\python-xm\\langchain\\libs\\core\\langchain_core\\chat_history.py", "ok": true, "seg": 23, "calls": 1}
+{"path": "D:\\python-xm\\langchain\\libs\\core\\langchain_core\\load\\load.py", "ok": true, "seg": 97, "calls": 4}
+{"path": "D:\\python-xm\\langchain\\libs\\core\\langchain_core\\tracers\\core.py", "ok": true, "seg": 73, "calls": 2}
+{"path": "D:\\python-xm\\langchain\\libs\\core\\langchain_core\\tracers\\stdout.py", "ok": true, "seg": 10, "calls": 1}
